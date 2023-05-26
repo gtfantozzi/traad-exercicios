@@ -84,8 +84,8 @@ def main():
     if page:
         soup = scrapper.parse_html_page(page)
         airport_info = scrapper.get_all_info(soup=soup)
-        pretty = json.dumps(airport_info, indent=4)
-        print(pretty)
+        #pretty = json.dumps(airport_info, indent=4)
+        #print(pretty)
         print_info(airport_info)
 
 
