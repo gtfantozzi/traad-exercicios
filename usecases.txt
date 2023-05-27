@@ -1,0 +1,7 @@
+- ICAO code
+    - validar codigo (https://airportcodes.io/en/country/brazil/)
+
+- show info
+    - Cartas disponiveis
+    - Os horários de nascer e pôr do sol de hoje
+    - A informação de TAF e METAR disponíveis
