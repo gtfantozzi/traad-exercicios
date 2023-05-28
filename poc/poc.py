@@ -1,5 +1,7 @@
 import json
 import logging
+import re
+import sys
 from typing import Optional
 
 import requests
@@ -109,7 +111,7 @@ def print_info(info: dict):
     Args:
         info: O dicionario contendo as informacoes do aeroporto.
     """
-    print(f"####### {info['page_title']} #######\n")
+    print(f"\n####### {info['page_title']} #######\n")
     print(f"[*] Horário Nascer do Sol: {info['sunrise']}")
     print(f"[*] Horário Por do Sol:    {info['sunset']}")
     print(f"[*] METAR:                 {info['metar']}")
@@ -120,8 +122,10 @@ def print_info(info: dict):
 
 
 def main():
+    icao_code = "SBMT"
+    
     scrapper = Scrapper()
-    page = scrapper.request('SBMT')
+    page = scrapper.request(icao_code)
     if page:
         soup = scrapper.parse_html_page(page)
         airport_info = scrapper.get_all_info(soup=soup)

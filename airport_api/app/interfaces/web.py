@@ -17,3 +17,13 @@ def get_airport_info(icao_code: str, valid: bool = Depends(validate_icao_code)):
     if airport_info is None:
         raise HTTPException(status_code=404, detail=f"Não foi possível resgatar as informações.")
     return airport_info
+
+@router.get("/")
+async def root():
+    routes = []
+    for route in router.routes:
+        routes.append({
+            "path": route.path,
+            "methods": route.methods,
+        })
+    return {"endpoints": routes}
