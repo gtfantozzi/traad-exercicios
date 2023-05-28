@@ -8,5 +8,5 @@ class GetAirportInfoUseCase:
 
     def execute(self, icao_code: str) -> AirportInfo:
         airport = Airport(icao_code)
-        airport_info = self.airport_repository.get_airport_info(airport)
+        airport_info = self.airport_repository.get_live_airport_info(airport)
         return airport_info

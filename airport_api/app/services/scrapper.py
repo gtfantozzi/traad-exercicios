@@ -14,9 +14,9 @@ class AirportScraper:
                 # pra mesma pagina, contendo msg de nao encontrado
                 # verificar no history da resposta evita todo o trabalho
                 # do parser e localizar o texto de nao encontrado!
-                if res.history:
+                if len(res.history) > 0:
                     return None
-                if res.status_code == 200:
+                elif res.status_code == 200:
                     page = res.text
                     soup = self.parse_html_page(page)
                     airport_info = self.get_all_info(soup)
