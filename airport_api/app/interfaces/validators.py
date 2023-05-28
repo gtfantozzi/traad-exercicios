@@ -1,4 +1,7 @@
-# validacao basica p/ codigo ICAO
-def validate_icao_code(icao_code: str):
+from typing import Tuple
+
+
+def validate_icao_code(icao_code: str) -> Tuple[bool, str]:
     if len(icao_code) != 4:
-        raise ValueError("O código ICAO deve ter 4 caracteres. Exemplo: SBMT, SBJD")
+        return False
+    return True
